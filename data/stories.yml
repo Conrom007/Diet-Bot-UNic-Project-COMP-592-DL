@@ -1,0 +1,216 @@
+version: "3.1"
+
+stories:
+
+- story: schedule reminder
+  steps:
+  - intent: schedule_reminder
+  - action: action_scheduled_reminder
+  - action: utter_reminder_set
+  - intent: goodbye
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  - action: action_restart_custom
+
+
+
+- story: schedule reminder 2
+  steps:
+  - intent: greet
+  - action: action_hello_world
+  - action: utter_greet
+  - intent: schedule_reminder
+  - action: action_scheduled_reminder
+  - action: utter_reminder_set
+
+- story: returned_one
+  steps:
+  - intent: greet
+  - action: action_hello_world
+  - slot_was_set:
+    - usr_ID: 8b9e5a4987fc4652a56c91977fb5351e
+  - action: utter_greet
+  - intent: log_food_item
+  - action: food_form
+  - active_loop: food_form
+  - slot_was_set:
+    - requested_slot: food
+  - slot_was_set:
+    - food: 50g chicken
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_match_food
+  - slot_was_set:
+    - buttons_used: false
+  - slot_was_set:
+    - food_choice: 'Chicken '
+  - slot_was_set:
+    - quantity:
+      - 50g
+  - action: action_match_selection_calories
+  - action: action_submit
+  - action: action_reset_all_slots
+  - slot_was_set:
+    - usr_ID: 8b9e5a4987fc4652a56c91977fb5351e
+  - action: action_restart_custom
+
+
+
+- story: return_three
+  steps:
+  - intent: greet
+  - action: action_hello_world
+  - slot_was_set:
+    - usr_ID: 5085fda950094823813a0ff8dec6755f
+  - action: utter_greet
+  - intent: log_food_item
+  - action: food_form
+  - active_loop: food_form
+  - slot_was_set:
+    - requested_slot: food
+  - slot_was_set:
+    - food: 30g pazrame
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_match_food
+  - slot_was_set:
+    - buttons_used: true
+  - slot_was_set:
+    - quantity:
+      - 30g
+  - intent: inform
+  - action: action_food_set
+  - slot_was_set:
+    - food_choice: Beef, pastrami, cured
+  - action: action_match_selection_calories
+  - action: action_submit
+  - action: action_reset_all_slots
+  - slot_was_set:
+    - usr_ID: 5085fda950094823813a0ff8dec6755f
+  - action: action_restart_custom
+
+
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: action_hello_world
+  - slot_was_set:
+    - usr_ID: 76e29aaf346c47a298809c168d97b056
+  - action: utter_greet
+  - intent: log_food_item
+  - action: food_form
+  - active_loop: food_form
+  - slot_was_set:
+    - requested_slot: food
+  - slot_was_set:
+    - food: 45g chicken
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_match_food
+  - slot_was_set:
+    - buttons_used: false
+  - slot_was_set:
+    - food_choice: 'Chicken '
+  - slot_was_set:
+    - quantity:
+      - 45g
+  - action: action_match_selection_calories
+  - action: action_submit
+  - action: action_reset_all_slots
+  - slot_was_set:
+    - usr_ID: 76e29aaf346c47a298809c168d97b056
+  - action: action_restart_custom
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: action_hello_world
+  - slot_was_set:
+    - usr_ID: 2d74ee0b8c4f46bb8e3a7c0117c33b1b
+  - action: utter_greet
+  - intent: log_food_item
+  - action: food_form
+  - active_loop: food_form
+  - slot_was_set:
+    - requested_slot: food
+  - slot_was_set:
+    - food: 65g paztrame
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_match_food
+  - slot_was_set:
+    - buttons_used: true
+  - slot_was_set:
+    - quantity:
+      - 65g
+  - intent: inform
+  - action: action_food_set
+  - slot_was_set:
+    - food_choice: Pastrami, 98% fat-free, beef
+  - action: action_match_selection_calories
+  - action: action_submit
+  - action: action_reset_all_slots
+  - slot_was_set:
+    - usr_ID: 2d74ee0b8c4f46bb8e3a7c0117c33b1b
+  - action: action_restart_custom
+
+- story: interactive_story_2
+  steps:
+  - intent: log_food_item
+  - action: food_form
+  - active_loop: food_form
+  - slot_was_set:
+    - requested_slot: food
+  - slot_was_set:
+    - food: 45g chicken
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_match_food
+  - slot_was_set:
+    - buttons_used: false
+  - slot_was_set:
+    - food_choice: 'Chicken '
+  - slot_was_set:
+    - quantity:
+      - 45g
+  - action: action_match_selection_calories
+  - action: action_submit
+  - action: action_reset_all_slots
+  - slot_was_set:
+    - usr_ID: 2d74ee0b8c4f46bb8e3a7c0117c33b1b
+  - action: action_restart_custom
+
+- story: interactive_story_3
+  steps:
+  - intent: log_food_item
+  - action: food_form
+  - active_loop: food_form
+  - slot_was_set:
+    - requested_slot: food
+  - slot_was_set:
+    - food: 56g pizza
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_match_food
+  - slot_was_set:
+    - buttons_used: true
+  - slot_was_set:
+    - quantity:
+      - 56g
+  - intent: inform
+  - action: action_food_set
+  - slot_was_set:
+    - food_choice: PIZZA HUT 14" Pepperoni Pizza, Pan Crust
+  - action: action_match_selection_calories
+  - action: action_submit
+  - action: action_reset_all_slots
+  - slot_was_set:
+    - usr_ID: 2d74ee0b8c4f46bb8e3a7c0117c33b1b
+  - action: action_restart_custom

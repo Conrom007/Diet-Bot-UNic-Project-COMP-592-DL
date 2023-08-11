@@ -1,0 +1,120 @@
+2022-08-26 19:37:40,731 [INFO ]  Starting Rasa server on http://0.0.0.0:5005
+2022-08-26 19:37:42,844 [INFO ]  Loading model models/20220826-192813-thick-frisbee.tar.gz...
+2022-08-26 19:38:09,551 [WARNI]  The UnexpecTED Intent Policy is currently experimental and might change or be removed in the future 🔬 Please share your feedback on it in the forum (https://forum.rasa.com) to help us make this feature ready for production.
+2022-08-26 19:38:21,707 [INFO ]  Rasa server is up and running.
+2022-08-26 19:38:36,689 [ERROR]  Exception occurred while handling uri: 'http://0.0.0.0:5005/webhooks/callback/webhook'
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/rasa/engine/graph.py", line 464, in __call__
+    output = self._fn(self._component, **run_kwargs)
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/rasa/nlu/classifiers/regex_message_handler.py", line 55, in process
+    for message in messages
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/rasa/nlu/classifiers/regex_message_handler.py", line 55, in <listcomp>
+    for message in messages
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/rasa/shared/core/training_data/story_reader/yaml_story_reader.py", line 618, in unpack_regex_message
+    user_text = message.get(TEXT).strip()
+AttributeError: 'NoneType' object has no attribute 'strip'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "handle_request", line 83, in handle_request
+    )
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/rasa/core/channels/callback.py", line 77, in webhook
+    UserMessage(text, collector, sender_id, input_channel=self.name())
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/rasa/core/channels/channel.py", line 89, in handler
+    await app.ctx.agent.handle_message(message)
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/rasa/core/agent.py", line 421, in handle_message
+    message
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/rasa/core/processor.py", line 137, in handle_message
+    tracker = await self.log_message(message, should_save_tracker=False)
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/rasa/core/processor.py", line 384, in log_message
+    await self._handle_message_with_tracker(message, tracker)
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/rasa/core/processor.py", line 683, in _handle_message_with_tracker
+    parse_data = await self.parse_message(message)
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/rasa/core/processor.py", line 636, in parse_message
+    parse_data = self._parse_message_with_graph(message, only_output_properties)
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/rasa/core/processor.py", line 662, in _parse_message_with_graph
+    targets=[self.model_metadata.nlu_target],
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/rasa/engine/runner/dask.py", line 101, in run
+    dask_result = dask.get(run_graph, run_targets)
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/dask/local.py", line 557, in get_sync
+    **kwargs,
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/dask/local.py", line 495, in get_async
+    for key, res_info, failed in queue_get(queue).result():
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/concurrent/futures/_base.py", line 428, in result
+    return self.__get_result()
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/dask/local.py", line 537, in submit
+    fut.set_result(fn(*args, **kwargs))
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/dask/local.py", line 233, in batch_execute_tasks
+    return [execute_task(*a) for a in it]
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/dask/local.py", line 233, in <listcomp>
+    return [execute_task(*a) for a in it]
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/dask/local.py", line 224, in execute_task
+    result = pack_exception(e, dumps)
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/dask/local.py", line 219, in execute_task
+    result = _execute_task(task, data)
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/dask/core.py", line 119, in _execute_task
+    return func(*(_execute_task(a, cache) for a in args))
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/rasa/engine/graph.py", line 473, in __call__
+    ) from e
+rasa.engine.exceptions.GraphComponentException: Error running graph component for node run_RegexMessageHandler.
+2022-08-26 19:38:38,417 [ERROR]  Exception occurred while handling uri: 'http://0.0.0.0:5005/webhooks/callback/webhook'
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/rasa/engine/graph.py", line 464, in __call__
+    output = self._fn(self._component, **run_kwargs)
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/rasa/nlu/classifiers/regex_message_handler.py", line 55, in process
+    for message in messages
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/rasa/nlu/classifiers/regex_message_handler.py", line 55, in <listcomp>
+    for message in messages
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/rasa/shared/core/training_data/story_reader/yaml_story_reader.py", line 618, in unpack_regex_message
+    user_text = message.get(TEXT).strip()
+AttributeError: 'NoneType' object has no attribute 'strip'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "handle_request", line 83, in handle_request
+    )
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/rasa/core/channels/callback.py", line 77, in webhook
+    UserMessage(text, collector, sender_id, input_channel=self.name())
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/rasa/core/channels/channel.py", line 89, in handler
+    await app.ctx.agent.handle_message(message)
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/rasa/core/agent.py", line 421, in handle_message
+    message
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/rasa/core/processor.py", line 137, in handle_message
+    tracker = await self.log_message(message, should_save_tracker=False)
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/rasa/core/processor.py", line 384, in log_message
+    await self._handle_message_with_tracker(message, tracker)
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/rasa/core/processor.py", line 683, in _handle_message_with_tracker
+    parse_data = await self.parse_message(message)
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/rasa/core/processor.py", line 636, in parse_message
+    parse_data = self._parse_message_with_graph(message, only_output_properties)
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/rasa/core/processor.py", line 662, in _parse_message_with_graph
+    targets=[self.model_metadata.nlu_target],
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/rasa/engine/runner/dask.py", line 101, in run
+    dask_result = dask.get(run_graph, run_targets)
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/dask/local.py", line 557, in get_sync
+    **kwargs,
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/dask/local.py", line 495, in get_async
+    for key, res_info, failed in queue_get(queue).result():
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/concurrent/futures/_base.py", line 428, in result
+    return self.__get_result()
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/dask/local.py", line 537, in submit
+    fut.set_result(fn(*args, **kwargs))
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/dask/local.py", line 233, in batch_execute_tasks
+    return [execute_task(*a) for a in it]
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/dask/local.py", line 233, in <listcomp>
+    return [execute_task(*a) for a in it]
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/dask/local.py", line 224, in execute_task
+    result = pack_exception(e, dumps)
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/dask/local.py", line 219, in execute_task
+    result = _execute_task(task, data)
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/dask/core.py", line 119, in _execute_task
+    return func(*(_execute_task(a, cache) for a in args))
+  File "/opt/miniconda3/envs/rasa_project/lib/python3.7/site-packages/rasa/engine/graph.py", line 473, in __call__
+    ) from e
+rasa.engine.exceptions.GraphComponentException: Error running graph component for node run_RegexMessageHandler.

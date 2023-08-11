@@ -1,0 +1,27 @@
+create virtual environment (with example):
+conda create -n flask_mock_server python=3.7.13 flask  -> creates venv named flask_mock... installs python3.7.13 and flask
+
+
+
+start mysql server:
+mysql.server start 
+
+
+
+
+mysql -u root -p 
+(pass is root)
+
+if not responding use \q to quit then use above live again
+
+rasa run actions -> starts action server for custom actions
+rasa run --enable-api -> runs as a server and you can test/run APIs
+
+http://localhost:5005/conversations/user123/trigger_intent?output_channel=latest
+
+
+rasa run --enable-api --cors="*" --debug -> cors opens origins for chatbox
+
+rasa run --credentials credentials.yml  --enable-api --cors="*" --debug 
+
+rasa run actions --cors "*" --debug

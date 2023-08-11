@@ -1,0 +1,28 @@
+class ActionSubmit(Action):
+  def name(self) -> Text: 
+        
+    return "action_submit"
+
+  def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+    breakfast = tracker.get_slot("breakfast")
+    lunch = tracker.get_slot("lunch")
+    dinner = tracker.get_slot("dinner")
+    snack = tracker.get_slot("snack")
+    Data_Update(breakfast, lunch, dinner, snack)
+    breakfast_list = [breakfast]
+    lunch_list = [lunch]
+    dinner_list = [dinner]
+    snack_list = [snack]
+    print(breakfast)
+    print(breakfast_list)
+    breakfast_foods , breakfast_quantities = extract_entities(breakfast_list)
+    lunch_foods , lunch_quantities = extract_entities(lunch_list)
+    dinner_foods , dinner_quantities = extract_entities(dinner_list)
+    snack_foods , snack_quantities = extract_entities(snack_list)
+    print(breakfast_foods, '~', breakfast_quantities)
+    print(lunch_foods, '~', lunch_quantities)
+    print(dinner_foods, '~', dinner_quantities)
+    print(snack_foods, '~', snack_quantities)
+    calories = calories_calc(breakfast_foods , breakfast_quantities) + calories_calc(lunch_foods , lunch_quantities) + calories_calc(dinner_foods , dinner_quantities) + calories_calc(snack_foods , snack_quantities)
+    dispatcher.utter_message(text= "Today you had a total of {} calories. Your data has been stored. Thank you for choosing me to assist you!".format(calories))
+    return[]

@@ -1,0 +1,231 @@
+version: '3.1'
+intents:
+- EXTERNAL_scheduled
+- affirm
+- bot_challenge
+- deny
+- goodbye
+- greet
+- inform
+- log_breakfast
+- log_dinner
+- log_food
+- log_food_item
+- log_lunch
+- log_snack
+- schedule_reminder
+entities:
+- breakfast
+- food
+- reminder
+slots:
+  buttons_used:
+    type: bool
+    mappings:
+    - type: custom
+  food:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: food_form
+        requested_slot: food
+  food_choice:
+    type: text
+    mappings:
+    - type: custom
+  breakfast:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: meals_form
+        requested_slot: breakfast
+      - active_loop: breakfast_form
+        requested_slot: breakfast
+  lunch:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: meals_form
+        requested_slot: lunch
+      - active_loop: lunch_form
+        requested_slot: lunch
+  dinner:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: meals_form
+        requested_slot: dinner
+      - active_loop: dinner_form
+        requested_slot: dinner
+  snack:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: meals_form
+        requested_slot: snack
+      - active_loop: snack_form
+        requested_slot: snack
+  reminder:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: reminder
+  usr_ID:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+  quantity:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+  calories:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+  protein:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+  carbs:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+  fat:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+  sugar:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+  sodium:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+  date:
+    type: any
+    influence_conversation: false
+    mappings:
+    - type: custom
+  daily_reminder_time:
+    type: any
+    influence_conversation: false
+    mappings:
+    - type: custom
+forms:
+  breakfast_form:
+    required_slots:
+    - breakfast
+  lunch_form:
+    required_slots:
+    - lunch
+  dinner_form:
+    required_slots:
+    - dinner
+  snack_form:
+    required_slots:
+    - snack
+  meals_form:
+    required_slots:
+    - breakfast
+    - lunch
+    - dinner
+    - snack
+  food_form:
+    required_slots:
+    - food
+responses:
+  utter_reminder_set:
+  - text: Daily reminder set!
+  utter_reminder_log:
+  - text: It's time to log your meals for the day!
+  utter_greet:
+  - text: Hey there 👋. I am Diet-bot, I can help you get started on your journey towards a healthier lifestyle. Ask me to log your food and calculate your calories!💪🍎🥑🥕🥩
+    quick_replies:
+    - title: Log Food Item
+      payload: /log_food_item
+    - title: Log Meals
+      payload: /log_food
+    - title: Schedule Daily Reminder
+      payload: /schedule_reminder
+  utter_assist:
+  - text: Anything else can I do for you?💪🍎🥑🥕🥩
+    quick_replies:
+    - title: Log Food Item
+      payload: /log_food_item
+    - title: Log Meals
+      payload: /log_food
+    - title: Schedule Daily Reminder
+      payload: /schedule_reminder
+  - text: How may I assist you?💪🍎🥑🥕🥩
+    quick_replies:
+    - title: Log Food Item
+      payload: /log_food_item
+    - title: Log Meals
+      payload: /log_food
+    - title: Schedule Daily Reminder
+      payload: /schedule_reminder
+  utter_ask_breakfast:
+  - text: What did you have for breakfast today?
+  utter_ask_lunch:
+  - text: What did you have for lunch today?
+  utter_ask_dinner:
+  - text: What did you have for dinner today?
+  utter_ask_snack:
+  - text: What snacks did you have today?
+  utter_ask_food:
+  - text: What did you have?
+  utter_slot_value:
+  - text: |-
+      Today you had the following:
+       Breakfast: {breakfast}
+       Lunch: {lunch}
+       Dinner: {dinner}
+       Snacks: {snack}
+
+       Do you wish to save these?
+  utter_end_test:
+  - text: Thank you for your time. END.
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+actions:
+- action_food_set
+- action_hello_world
+- action_match_food
+- action_match_selection_calories
+- action_reset_all_slots
+- action_restart_custom
+- action_scheduled_reminder
+- action_submit
+- utter_ask_breakfast
+- utter_ask_dinner
+- utter_ask_food
+- utter_ask_snack
+- utter_breakfast_logged
+- utter_end_test
+- utter_goodbye
+- utter_greet
+- utter_reminder_log
+- utter_reminder_set
+- utter_slot_value

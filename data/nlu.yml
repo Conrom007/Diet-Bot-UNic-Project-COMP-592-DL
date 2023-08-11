@@ -1,0 +1,147 @@
+version: "3.1"
+nlu:
+- intent: log_food
+  examples: |
+    - I want to log my food.
+    - Log my food.
+    - log
+    - food.
+    - log food
+    - I want to log my food
+    - I want to log the food I had today
+    - I wish to log my food
+    - I would like to log my food for the day
+    - I would like to log my food
+- intent: log_food_item
+  examples: |
+    - I want to a food item.
+    - I want to log a food item
+    - i want to log a food item
+    - log food item
+    - logfood item
+    - loog food item
+- intent: schedule_reminder
+  examples: |
+    - I want to schedule a daily reminder.
+    - I want to schedule a daily reminder
+- intent: inform
+  examples: |
+    - 150g salami (food)
+    - 2 eggs (food)
+    - 250ml tomato juice (food)
+    - 500g fish (food)
+    - 1 cup milk(food)
+    - 250ml water (food)
+    - 250m milk
+    - 250ml milk and 45g corn flakes
+    - 1 cup rice, 250g beef steak and 1 Large Beer
+    - 100g mashed potatoes, 50g steamed brocoli, 1 medium chicken breast
+    - 2 snickers
+    - 1 McDonald's Ice Cream Cone
+    - 250ml whole milk, 1 tsp coffe, 1/2 tsp sugar
+    - 300g minced beef, 200g rice, 1 large flour tortilla, 330ml  coca-cola
+    - 1 bigmac, 1 large coca-cola zero, 1 large McDonald's fries, 1 ketchup packet
+    - 2 bananas, 1 slice cheesecake
+    - 250ml milk
+    - 350g steak
+    - 5 slices peperoni pizza
+    - 90g lays vinegar chips
+    - venti ice frappuccino
+    - 150 spaghetti, 20g meatballs, 1 glass water
+    - 200g pork, 1 large greek pitta, 2 tbsp tzatziki
+    - 2 kitkat, 45g yogurt, 15g smarties, 2 cups blueberries, 10ml honey
+    - 350ml Orange Juice, 120g oats, 2tsp honey, 1 apple
+    - 100g eggplant, 150g potatoes, 50ml tomato sauce, 200g 5% Greek Yogurt
+    - 150g Chicken, 50ml full fat mayonaise, 10ml sriracha, 160g rice
+    - 500ml Monster Energy, 2 snickers
+    - 250ml milk, 2tsps coffee, 1tsp sugar
+    - 300g steak, 150g fried potatoes
+    - 1 large chicken breast, 200g rice
+    - milk
+    - 2 slices peperoni pizza, 1 large coke, 2 mozzarella sticks, 20ml ranch sauce
+    - 1 apple, 1 peach, 80g chocolate icecream
+    - 1 apple
+    - 1 cup rice and 5 meatballs
+    - 1 tuna salad with 1 piece white toast
+    - 1 protein bar
+    - 1 milko
+    - 300g oats, 200ml milk
+    - 1 gyros, small fries, 1 beer
+    - 200g Turkey
+    - 2 bananas
+    - rasa interactive
+    - 200ml milk
+    - 200g chicken
+    - 10g chicken
+    - 10g paztrame
+    - chicken
+    - Beef, pastrami, cured
+    - 100g chicken
+    - chicken sandwich
+    - 50g chicken
+    - 30g paztrame
+    - Pastrami, 98% fat-free, beef
+    - 30g pazrame
+    - Pastrami, turkey
+    - 45g chicken
+    - 67g basmati
+    - 65g paztrame
+    - 56g pizza
+    - PIZZA HUT 14" Pepperoni Pizza, Pan Crust
+    - 100g Cornstarch
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - say hello world
+    - yo
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - end
+    - Goodbye
+    - thank you goodbye
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - yes please
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?

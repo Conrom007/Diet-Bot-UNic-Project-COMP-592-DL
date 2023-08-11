@@ -1,0 +1,31 @@
+version: "3.1"
+
+rules:
+
+- rule: remind to log food
+  steps:
+  - intent: EXTERNAL_scheduled
+  - action: utter_reminder_log
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  - action: action_restart_custom
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: greet user
+  steps:
+  - intent: greet
+  - action: action_hello_world
+  - action: utter_greet
+
+- rule: reset and restart 
+  steps:
+  - action: action_reset_all_slots
+  - action: action_restart_custom
